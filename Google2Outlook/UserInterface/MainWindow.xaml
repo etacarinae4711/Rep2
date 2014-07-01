@@ -1,0 +1,48 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:Google2Outlook.Properties"
+        xmlns:local="clr-namespace:Google2Outlook"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Google2Outlook.MainWindow"
+        Title="Google2Outlook" Height="145" Width="365" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseLeftButtonDown="WindowMouseLeftButtonDown" Icon="../Assets/icon.ico">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="HintButton_Click"/>
+        <CommandBinding Command="ApplicationCommands.Close" Executed="ExitButton_Click" />
+        <CommandBinding Command="{x:Static local:MainWindow.Convert}" Executed="ConvertButton_Click"/>
+        <!--<CommandBinding Command="{x:Static local:MainWindow.DragCommand}" Executed="ConvertButton_DragOver"></CommandBinding>-->
+    </Window.CommandBindings>
+    <x:Code>
+        <![CDATA[            
+        private void WindowMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+    ]]>
+    </x:Code>
+    <Border BorderThickness="1" BorderBrush="Black" >
+        <StackPanel>
+            <StackPanel.Resources>
+                <ControlTemplate TargetType="Button" x:Key="CsvButton">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </StackPanel.Resources>
+            <DockPanel Height="30" >
+                <Label Content="G2O" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontStyle="Italic" Margin="10,2,0,2"/>
+                <StackPanel Height="30" Width="36" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,10,0">
+                    <Button x:Name="HintButton" Content="?" Padding="0,-4,0,0" Height="16" VerticalAlignment="Center" Width="16" HorizontalAlignment="Left" Margin="0,0,5,0" Command="ApplicationCommands.Help" BorderThickness="0" Background="{x:Null}" FontWeight="Bold" FontSize="16" />
+                    <Button x:Name="ExitButton" Padding="0,0,0,0" Width="16" Height="16" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0" Command="ApplicationCommands.Close" BorderThickness="0" Background="{x:Null}">
+                        <Image Height="10" Width="10" Source="/Google2Outlook;component/Assets/close.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill"/>
+                    </Button>
+                </StackPanel>
+            </DockPanel>
+            <Button Template="{StaticResource CsvButton}" x:Name="ConvertButton" Width="227" BorderThickness="0" Background="{x:Null}" AllowDrop="True" Command="local:MainWindow.Convert" Focusable="False" ToolTip="{x:Static resx:Resources.MainWindow_Tooltip}" DragOver="ConvertButton_DragOver" Drop="ConvertButton_Drop">
+                <Image Height="80" Source="/Google2Outlook;component/Assets/transfer.png" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="{x:Static resx:Resources.MainWindow_Tooltip}"/>
+            </Button>
+            <!-- Button x:Name="PatchButton" Content="Google CSV Datei Patchen" Click="PatchButton_Click" Margin="10,0,10,5" Background="White"/ -->
+            <TextBlock TextWrapping="Wrap" Text="©2014 - " Height="16" HorizontalAlignment="Right" Margin="180,10,10,0" VerticalAlignment="Center"><Hyperlink NavigateUri="http://www.czyrny.net" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="www.czyrny.net"/></Hyperlink></TextBlock>
+        </StackPanel>
+    </Border>
+</Window>

@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CsvPairs_Account" xml:space="preserve">
+    <value>Konto</value>
+  </data>
+  <data name="CsvPairs_Anniversary" xml:space="preserve">
+    <value>Jahrestag</value>
+  </data>
+  <data name="CsvPairs_AssistantsName" xml:space="preserve">
+    <value>Assistent(in)</value>
+  </data>
+  <data name="CsvPairs_AssistantsPhone" xml:space="preserve">
+    <value>Telefon Assistent</value>
+  </data>
+  <data name="CsvPairs_BillingInformation" xml:space="preserve">
+    <value>Abrechnungsinformation</value>
+  </data>
+  <data name="CsvPairs_Birthday" xml:space="preserve">
+    <value>Geburtstag</value>
+  </data>
+  <data name="CsvPairs_BusinessAddress" xml:space="preserve">
+    <value>Büro</value>
+  </data>
+  <data name="CsvPairs_BusinessAddressPOBox" xml:space="preserve">
+    <value>Postfach geschäftlich</value>
+  </data>
+  <data name="CsvPairs_BusinessCity" xml:space="preserve">
+    <value>Ort geschäftlich</value>
+  </data>
+  <data name="CsvPairs_BusinessCountry" xml:space="preserve">
+    <value>Land/Region geschäftlich</value>
+  </data>
+  <data name="CsvPairs_BusinessFax" xml:space="preserve">
+    <value>Fax geschäftlich</value>
+  </data>
+  <data name="CsvPairs_BusinessPhone" xml:space="preserve">
+    <value>Telefon geschäftlich</value>
+  </data>
+  <data name="CsvPairs_BusinessPhone2" xml:space="preserve">
+    <value>Telefon geschäftlich 2</value>
+  </data>
+  <data name="CsvPairs_BusinessPostalCode" xml:space="preserve">
+    <value>Postleitzahl geschäftlich</value>
+  </data>
+  <data name="CsvPairs_BusinessState" xml:space="preserve">
+    <value>Region geschäftlich</value>
+  </data>
+  <data name="CsvPairs_BusinessStreet" xml:space="preserve">
+    <value>Straße geschäftlich</value>
+  </data>
+  <data name="CsvPairs_BusinessStreet2" xml:space="preserve">
+    <value>Straße geschäftlich 2</value>
+  </data>
+  <data name="CsvPairs_BusinessStreet3" xml:space="preserve">
+    <value>Straße geschäftlich 3</value>
+  </data>
+  <data name="CsvPairs_Callback" xml:space="preserve">
+    <value>Rückmeldung</value>
+  </data>
+  <data name="CsvPairs_CarPhone" xml:space="preserve">
+    <value>Autotelefon</value>
+  </data>
+  <data name="CsvPairs_Categories" xml:space="preserve">
+    <value>Kategorien</value>
+  </data>
+  <data name="CsvPairs_Children" xml:space="preserve">
+    <value>Kinder</value>
+  </data>
+  <data name="CsvPairs_Company" xml:space="preserve">
+    <value>Firma</value>
+  </data>
+  <data name="CsvPairs_CompanyMainPhone" xml:space="preserve">
+    <value>Telefon Firma</value>
+  </data>
+  <data name="CsvPairs_Department" xml:space="preserve">
+    <value>Abteilung</value>
+  </data>
+  <data name="CsvPairs_DirectoryServer" xml:space="preserve">
+    <value>Verzeichnisserver</value>
+  </data>
+  <data name="CsvPairs_Email2Address" xml:space="preserve">
+    <value>E-Mail 2: Adresse</value>
+  </data>
+  <data name="CsvPairs_Email3Address" xml:space="preserve">
+    <value>E-Mail 3: Adresse</value>
+  </data>
+  <data name="CsvPairs_EmailAddress" xml:space="preserve">
+    <value>E-Mail-Adresse</value>
+  </data>
+  <data name="CsvPairs_FirstName" xml:space="preserve">
+    <value>Vorname</value>
+  </data>
+  <data name="CsvPairs_Gender" xml:space="preserve">
+    <value>Geschlecht</value>
+  </data>
+  <data name="CsvPairs_Hobby" xml:space="preserve">
+    <value>Hobby</value>
+  </data>
+  <data name="CsvPairs_HomeAddress" xml:space="preserve">
+    <value>Ort</value>
+  </data>
+  <data name="CsvPairs_HomeAddressPOBox" xml:space="preserve">
+    <value>Postfach privat</value>
+  </data>
+  <data name="CsvPairs_HomeCity" xml:space="preserve">
+    <value>Ort privat</value>
+  </data>
+  <data name="CsvPairs_HomeCountry" xml:space="preserve">
+    <value>Land/Region privat</value>
+  </data>
+  <data name="CsvPairs_HomeFax" xml:space="preserve">
+    <value>Fax privat</value>
+  </data>
+  <data name="CsvPairs_HomePhone" xml:space="preserve">
+    <value>Telefon (privat)</value>
+  </data>
+  <data name="CsvPairs_HomePhone2" xml:space="preserve">
+    <value>Telefon (privat 2)</value>
+  </data>
+  <data name="CsvPairs_HomePostalCode" xml:space="preserve">
+    <value>Postleitzahl privat</value>
+  </data>
+  <data name="CsvPairs_HomeState" xml:space="preserve">
+    <value>Bundesland/Kanton privat</value>
+  </data>
+  <data name="CsvPairs_HomeStreet" xml:space="preserve">
+    <value>Straße privat</value>
+  </data>
+  <data name="CsvPairs_HomeStreet2" xml:space="preserve">
+    <value>Straße privat 2</value>
+  </data>
+  <data name="CsvPairs_HomeStreet3" xml:space="preserve">
+    <value>Straße privat 3</value>
+  </data>
+  <data name="CsvPairs_Initials" xml:space="preserve">
+    <value>Initialen</value>
+  </data>
+  <data name="CsvPairs_InternetFreeBusy" xml:space="preserve">
+    <value>Internet Frei/Gebucht</value>
+  </data>
+  <data name="CsvPairs_ISDN" xml:space="preserve">
+    <value>ISDN</value>
+  </data>
+  <data name="CsvPairs_JobTitle" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="CsvPairs_Keywords" xml:space="preserve">
+    <value>Stichwörter</value>
+  </data>
+  <data name="CsvPairs_Language" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="CsvPairs_LastName" xml:space="preserve">
+    <value>Nachname</value>
+  </data>
+  <data name="CsvPairs_Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="CsvPairs_ManagersName" xml:space="preserve">
+    <value>Name des/r Vorgesetzten</value>
+  </data>
+  <data name="CsvPairs_MiddleName" xml:space="preserve">
+    <value>Weitere Vornamen</value>
+  </data>
+  <data name="CsvPairs_Mileage" xml:space="preserve">
+    <value>Reisekilometer</value>
+  </data>
+  <data name="CsvPairs_MobilePhone" xml:space="preserve">
+    <value>Mobiltelefon</value>
+  </data>
+  <data name="CsvPairs_MobilePhone2" xml:space="preserve">
+    <value>Mobiltelefon 2</value>
+  </data>
+  <data name="CsvPairs_Notes" xml:space="preserve">
+    <value>Notizen</value>
+  </data>
+  <data name="CsvPairs_OfficeLocation" xml:space="preserve">
+    <value>Adresse geschäftlich</value>
+  </data>
+  <data name="CsvPairs_OrganizationalIDNumber" xml:space="preserve">
+    <value>Organisationsnr.</value>
+  </data>
+  <data name="CsvPairs_OtherAddress" xml:space="preserve">
+    <value>Weitere Adresse</value>
+  </data>
+  <data name="CsvPairs_OtherAddressPOBox" xml:space="preserve">
+    <value>Weiteres Postfach</value>
+  </data>
+  <data name="CsvPairs_OtherCity" xml:space="preserve">
+    <value>Weiterer Ort</value>
+  </data>
+  <data name="CsvPairs_OtherCountry" xml:space="preserve">
+    <value>Weiteres/e Land/Region</value>
+  </data>
+  <data name="CsvPairs_OtherFax" xml:space="preserve">
+    <value>Weiteres Fax</value>
+  </data>
+  <data name="CsvPairs_OtherPhone" xml:space="preserve">
+    <value>Weiteres Telefon</value>
+  </data>
+  <data name="CsvPairs_OtherPostalCode" xml:space="preserve">
+    <value>Weitere Postleitzahl</value>
+  </data>
+  <data name="CsvPairs_OtherState" xml:space="preserve">
+    <value>Weiteres/r Bundesland/Kanton</value>
+  </data>
+  <data name="CsvPairs_OtherStreet" xml:space="preserve">
+    <value>Weitere Straße</value>
+  </data>
+  <data name="CsvPairs_OtherStreet2" xml:space="preserve">
+    <value>Weitere Straße 2</value>
+  </data>
+  <data name="CsvPairs_OtherStreet3" xml:space="preserve">
+    <value>Weitere Straße 3</value>
+  </data>
+  <data name="CsvPairs_Pager" xml:space="preserve">
+    <value>Pager</value>
+  </data>
+  <data name="CsvPairs_PrimaryPhone" xml:space="preserve">
+    <value>Haupttelefon</value>
+  </data>
+  <data name="CsvPairs_Priority" xml:space="preserve">
+    <value>Priorität</value>
+  </data>
+  <data name="CsvPairs_Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="CsvPairs_Profession" xml:space="preserve">
+    <value>Beruf</value>
+  </data>
+  <data name="CsvPairs_RadioPhone" xml:space="preserve">
+    <value>Funkruf</value>
+  </data>
+  <data name="CsvPairs_ReferredBy" xml:space="preserve">
+    <value>Empfohlen von</value>
+  </data>
+  <data name="CsvPairs_Sensitivity" xml:space="preserve">
+    <value>Vertraulichkeit</value>
+  </data>
+  <data name="CsvPairs_Spouse" xml:space="preserve">
+    <value>Partner</value>
+  </data>
+  <data name="CsvPairs_Suffix" xml:space="preserve">
+    <value>Suffix</value>
+  </data>
+  <data name="CsvPairs_Telex" xml:space="preserve">
+    <value>Telex</value>
+  </data>
+  <data name="CsvPairs_Title" xml:space="preserve">
+    <value>Anrede</value>
+  </data>
+  <data name="CsvPairs_TTY_TDDPhone" xml:space="preserve">
+    <value>Telefon für Hörbehinderte</value>
+  </data>
+  <data name="CsvPairs_User1" xml:space="preserve">
+    <value>Benutzer 1</value>
+  </data>
+  <data name="CsvPairs_User2" xml:space="preserve">
+    <value>Benutzer 2</value>
+  </data>
+  <data name="CsvPairs_User3" xml:space="preserve">
+    <value>Benutzer 3</value>
+  </data>
+  <data name="CsvPairs_User4" xml:space="preserve">
+    <value>Benutzer 4</value>
+  </data>
+  <data name="CsvPairs_WebPage" xml:space="preserve">
+    <value>Webseite</value>
+  </data>
+</root>
