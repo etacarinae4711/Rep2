@@ -1,10 +1,6 @@
-﻿using System;
+﻿using System.ComponentModel;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Resources;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Navigation;
@@ -12,23 +8,25 @@ using Microsoft.Win32;
 
 namespace Google2Outlook
 {
-
     public partial class MainWindow
     {
+        private static RoutedCommand _convert = new RoutedCommand();
+        private static readonly ResourceManager _resManager = Properties.Resources.ResourceManager;
+        private readonly BackgroundWorker _worker = new BackgroundWorker();
+
         public MainWindow()
         {
             InitializeComponent();
+            _worker.DoWork += worker_DoWork;
+            _worker.RunWorkerCompleted += worker_RunWorkerCompleted;
         }
 
-        private static RoutedCommand _convert = new RoutedCommand();
         public static RoutedCommand Convert
         {
             get { return _convert; }
             set { _convert = value; }
         }
 
-        private static readonly ResourceManager _resManager = Google2Outlook.Properties.Resources.ResourceManager;
-      
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
@@ -77,8 +75,18 @@ namespace Google2Outlook
         {
             if (!e.Data.GetDataPresent(DataFormats.FileDrop))
                 return;
-            var filePath = (string[])e.Data.GetData(DataFormats.FileDrop);
-            Domain.Converter.ReadCsvValues(filePath[0]);
+            var filePath = (string[]) e.Data.GetData(DataFormats.FileDrop);
+            _worker.RunWorkerAsync(filePath[0]);
+        }
+
+        private static void worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            var filePath = e.Argument.ToString();
+            Domain.Converter.ReadCsvValues(filePath);
+        }
+
+        private static void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
             new DialogBox().ShowDialog();
         }
     }

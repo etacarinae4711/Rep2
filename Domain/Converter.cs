@@ -11,7 +11,6 @@ namespace Domain
 {
     public class Converter
     {
-
         public static void ReadCsvValues(String sourcePath)
         {
             var tempPath = Path.GetTempFileName();
@@ -45,8 +44,6 @@ namespace Domain
             }
             File.Delete(sourcePath);
             File.Move(tempPath, sourcePath);
-
-            
         }
         public static void WriteValue(int lineNumber, StreamWriter writer, string header)
         {
@@ -59,7 +56,5 @@ namespace Domain
                 writer.Write("," + header);
             }
         }
-
-
     }
 }
