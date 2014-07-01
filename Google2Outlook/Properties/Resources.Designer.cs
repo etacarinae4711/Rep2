@@ -108,7 +108,7 @@ namespace Google2Outlook.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Die deutsche Outlook-Version erkennt die englischen Titel der exportierten Google-CSV Datei nicht, was ein manuelles Zuweisen von 88 Feldern notwendig macht. G2O übersetzt die Felder der CSV Datei für einen automatischen Import. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die deutsche Outlook-Version erkennt die englischen Titel der exportierten Google-CSV Datei nicht, was ein manuelles Zuweisen von 88 Feldern notwendig macht. Google2Outlook übersetzt die Felder der CSV Datei für einen automatischen Import. ähnelt.
         /// </summary>
         public static string Hint_Text {
             get {

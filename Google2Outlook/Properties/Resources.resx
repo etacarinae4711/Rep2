@@ -127,7 +127,7 @@
     <value>Hinweis</value>
   </data>
   <data name="Hint_Text" xml:space="preserve">
-    <value>Die deutsche Outlook-Version erkennt die englischen Titel der exportierten Google-CSV Datei nicht, was ein manuelles Zuweisen von 88 Feldern notwendig macht. G2O übersetzt die Felder der CSV Datei für einen automatischen Import.</value>
+    <value>Die deutsche Outlook-Version erkennt die englischen Titel der exportierten Google-CSV Datei nicht, was ein manuelles Zuweisen von 88 Feldern notwendig macht. Google2Outlook übersetzt die Felder der CSV Datei für einen automatischen Import.</value>
   </data>
   <data name="MainWindow_Filter" xml:space="preserve">
     <value>Google CSV Datei (*.csv)|*.csv;</value>

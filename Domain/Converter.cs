@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Converter;
 
 namespace Domain
 {
@@ -45,6 +42,7 @@ namespace Domain
             File.Delete(sourcePath);
             File.Move(tempPath, sourcePath);
         }
+
         public static void WriteValue(int lineNumber, StreamWriter writer, string header)
         {
             if (lineNumber == 0)
