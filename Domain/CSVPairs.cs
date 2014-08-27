@@ -6,11 +6,11 @@ using Domain.Properties;
 
 namespace Domain
 {
-    public class CsvPairs
+    public static class CsvPairs
     {
         private static readonly ResourceManager ResManager = Resources.ResourceManager;
 
-        public static Dictionary<String, String> Fields = new Dictionary<string, string>
+        public static readonly Dictionary<String, String> Fields = new Dictionary<string, string>
         {
             {"Account", L("CsvPairs_Account")},
             {"Anniversary", L("CsvPairs_Anniversary")},
