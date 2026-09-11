@@ -14,23 +14,14 @@
     Pfad zum privaten SSH-Schluessel (optional, z.B. ~/.ssh/id_rsa)
 #>
 param(
-    [Parameter(Mandatory)]
-    [string]$Server,
-
+    [string]$Server  = 'family-brain.boder.de',
     [string]$User    = 'root',
-    [string]$KeyFile = ''
+    [string]$KeyFile = 'D:\bjoer\OneDrive\Bjoern\Source\family-brain\.ssh\id_ed25519'
 )
 
 # ── SSH-Hilfsfunktion ────────────────────────────────────────────────────────
 function Invoke-SSH([string]$command) {
-    $sshArgs = @()
-    if ($KeyFile -ne '') { $sshArgs += '-i', $KeyFile }
-    $sshArgs += '-o', 'StrictHostKeyChecking=no'
-    $sshArgs += '-o', 'ConnectTimeout=10'
-    $sshArgs += "$User@$Server"
-    $sshArgs += $command
-
-    $result = & ssh @sshArgs 2>&1
+    $result = & ssh -i $KeyFile -o 'StrictHostKeyChecking=no' -o 'ConnectTimeout=10' "$User@$Server" $command 2>&1
     return $result
 }
 
