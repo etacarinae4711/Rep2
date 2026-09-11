@@ -13,9 +13,7 @@ function Write-OK([string]$t)   { Write-Host "  [OK]  $t" -ForegroundColor Green
 function Write-Err([string]$t)  { Write-Host "  [XX]  $t" -ForegroundColor Red    }
 function Write-Warn([string]$t) { Write-Host "  [!!]  $t" -ForegroundColor Yellow }
 function Write-Info([string]$t) { Write-Host "        $t" -ForegroundColor Gray   }
-function Write-Head([string]$t) {
-    Write-Host "`n=== $t ===" -ForegroundColor Cyan
-}
+function Write-Head([string]$t) { Write-Host "`n=== $t ===" -ForegroundColor Cyan }
 
 # Verbindungstest
 Write-Host "Verbinde mit $User@$Server ..." -ForegroundColor Yellow
@@ -28,42 +26,49 @@ Write-OK "Verbindung OK"
 # System
 Write-Head "System"
 Write-Info (Invoke-SSH 'uptime')
-Write-Info (Invoke-SSH "free -h | awk 'NR==2{print ""RAM: "" `$3 "" / "" `$2}'")
-$diskPct = [int]((Invoke-SSH "df / | awk 'NR==2{print `$5}' | tr -d '%'") -replace '\D')
+Write-Info (Invoke-SSH 'free -h | awk "NR==2{print \"RAM: \" $3 \" / \" $2}"')
+$diskPct = [int]((Invoke-SSH 'df / | awk "NR==2{gsub(/%/,\"\",$5); print $5}"') | Select-Object -First 1)
 if ($diskPct -ge 85) { Write-Warn "Disk: $diskPct% voll!" } else { Write-OK "Disk: $diskPct% belegt" }
 
-# Docker
+# Docker - alle Container
 Write-Head "Docker Container"
-$containers = Invoke-SSH 'docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
-$containers | ForEach-Object { Write-Info $_ }
-
-$stopped = Invoke-SSH 'docker ps -a --filter status=exited --format "{{.Names}}"'
-if ($stopped) {
-    Write-Warn "Gestoppt: $($stopped -join ', ')"
-}
+Invoke-SSH 'docker ps -a' | ForEach-Object { Write-Info $_ }
 
 # Caddy
 Write-Head "Caddy"
-$caddy = Invoke-SSH 'docker ps --filter name=caddy --format "{{.Names}} | {{.Status}}"'
-if ($caddy) { Write-OK $caddy } else { Write-Err "Caddy nicht gefunden!" }
+$caddy = Invoke-SSH 'docker ps --filter name=caddy --filter status=running -q'
+if ($caddy) {
+    $info = Invoke-SSH 'docker ps --filter name=caddy | tail -1'
+    Write-OK $info
+} else {
+    Write-Err "Caddy laeuft NICHT!"
+    Write-Info (Invoke-SSH 'docker ps -a --filter name=caddy | tail -1')
+}
 
 # Family-Brain
 Write-Head "Family-Brain"
-$fb = Invoke-SSH 'docker ps -a --filter name=family-brain --format "{{.Names}} | {{.Status}}"'
-if ($fb) {
-    foreach ($line in $fb) {
-        if ($line -match 'Up') { Write-OK $line } else {
+$fbLines = Invoke-SSH 'docker ps -a | grep family-brain'
+if ($fbLines) {
+    foreach ($line in $fbLines) {
+        if ($line -match '\bUp\b') {
+            Write-OK $line
+        } else {
             Write-Err $line
-            Write-Info "--- Letzte Logs ---"
-            $name = ($line -split '\|')[0].Trim()
-            Invoke-SSH "docker logs $name --tail 10" | ForEach-Object { Write-Info $_ }
+            Write-Head "Letzte Logs"
+            $name = ($line -split '\s+')[0]  # Container-ID, nicht Name
+            # Name aus separatem Befehl holen
+            $fbName = Invoke-SSH 'docker ps -a --filter name=family-brain --format "{{.Names}}"' 2>$null
+            if (-not $fbName) { $fbName = $name }
+            Invoke-SSH "docker logs $fbName --tail 10" | ForEach-Object { Write-Info $_ }
         }
     }
-} else { Write-Warn "Kein family-brain Container gefunden." }
+} else {
+    Write-Warn "Kein family-brain Container gefunden."
+}
 
-# Systemd-Fehler
+# Systemd-Fehler (cloud-init ignorieren)
 Write-Head "Systemd"
-$failed = Invoke-SSH 'systemctl --failed --no-legend'
-if ($failed -and $failed.Trim()) { Write-Err "Fehlgeschlagen: $failed" } else { Write-OK "Keine Fehler" }
+$failed = Invoke-SSH 'systemctl --failed --no-legend' | Where-Object { $_ -notmatch 'cloud-init' }
+if ($failed) { Write-Warn "Fehlgeschlagen: $($failed -join ', ')" } else { Write-OK "Keine Fehler" }
 
 Write-Host ""
